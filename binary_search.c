@@ -5,7 +5,7 @@ int main() {
     printf("Enter the size of array\n");
     scanf("%d", &size);
 
-    int arr[size];
+    int *arr = (int *)malloc(size * sizeof(int));
     printf("Enter the array elements (sorted)\n");
     for (int i = 0; i < size; i++) {
         scanf("%d", &arr[i]);
@@ -36,5 +36,6 @@ int main() {
         printf("Element not found\n");
     }
 
+    free(arr);
     return 0;
 }
