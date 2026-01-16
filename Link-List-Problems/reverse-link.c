@@ -1,57 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
+
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to reverse linked list
+
 struct Node* reverse(struct Node* head) {
     struct Node* prev = NULL;
     struct Node* curr = head;
     struct Node* next = NULL;
 
     while (curr != NULL) {
-        next = curr->next;   // store next
-        curr->next = prev;   // reverse link
-        prev = curr;         // move prev forward
-        curr = next;         // move curr forward
+        next = curr->next;   
+        curr->next = prev;   
+        prev = curr;         
+        curr = next;         
     }
-    return prev; // new head
+    return prev; 
 }
 
-// Utility to print list
+
 void printList(struct Node* head) {
     while (head != NULL) {
-        printf("%d -> ", head->data);
+        printf("%d ", head->data);
         head = head->next;
     }
-    printf("NULL\n");
-}
-
-// Helper to create new node
-struct Node* newNode(int data) {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-    node->data = data;
-    node->next = NULL;
-    return node;
+    printf("\n");
 }
 
 int main() {
-    // Example: 1 -> 2 -> 3 -> 4 -> NULL
-    struct Node* head = newNode(1);
-    head->next = newNode(2);
-    head->next->next = newNode(3);
-    head->next->next->next = newNode(4);
+    struct Node* head = NULL;
+    struct Node* temp = NULL;
+    struct Node* tail = NULL;
+    int n, val;
 
-    printf("Original List:\n");
+    
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    
+    for (int i = 0; i < n; i++) {
+        printf("Enter value for node %d: ", i + 1);
+        scanf("%d", &val);
+
+        temp = (struct Node*)malloc(sizeof(struct Node));
+        temp->data = val;
+        temp->next = NULL;
+
+        if (head == NULL) {
+            head = temp;
+            tail = temp;
+        } else {
+            tail->next = temp;
+            tail = temp;
+        }
+    }
+
+    
+    printf("Original list: ");
     printList(head);
 
+    
     head = reverse(head);
 
-    printf("Reversed List:\n");
+    
+    printf("Reversed list: ");
     printList(head);
 
     return 0;
