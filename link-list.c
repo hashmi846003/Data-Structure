@@ -18,7 +18,7 @@ int main(){
         if(head==NULL){
             head=newNode;
             temp=newNode;
-        }else{
+        }else if(temp->next==NULL){
             temp->next=newNode;
             temp=newNode;
         }

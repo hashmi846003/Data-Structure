@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 struct Node{
     int data;
     struct Node *next;
@@ -11,17 +12,18 @@ int main(){
     for(int i=0;i<n;i++){
         printf("Enter the data\n");
         scanf("%d",&data);
+        newNode = (struct Node*)malloc(sizeof(struct Node));
         newNode->data=data;
         newNode->next = head;
         head = newNode;
-printf("Linked List: ");
-    struct Node *temp = head;
-    while(temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
+
+
+}
+ while (head != NULL) {
+        printf("%d ", head->data);
+        head = head->next;
     }
-
-
-
+    printf("\n");
 }
-}
+
+
