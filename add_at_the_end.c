@@ -23,5 +23,8 @@ int main(){
             temp=newnode;
         }
     }
-    print_element( )
+    temp=head;
+    while(temp->next!=NULL){
+        printf("%d->",data);
+    }
 }
