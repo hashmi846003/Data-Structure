@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Define the structure for a doubly linked list node
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
-// Function to insert a node at the front of the list
+
 void insertFront(struct Node** head, int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -20,7 +18,7 @@ void insertFront(struct Node** head, int data) {
 
     (*head) = newNode;
 }
-// Function to insert a node at the end of the list
+
 void insertEnd(struct Node** head, int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     struct Node* last = *head;
@@ -41,7 +39,7 @@ void insertEnd(struct Node** head, int data) {
     last->next = newNode;
     newNode->prev = last;
 }
-// Function to delete a node from the list
+
 void deleteNode(struct Node** head, struct Node* delNode) {
     if (*head == NULL || delNode == NULL) {
         return;
@@ -61,7 +59,7 @@ void deleteNode(struct Node** head, struct Node* delNode) {
 
     free(delNode);
 }
-// Function to traverse and print the list
+
 void printList(struct Node* node) {
     struct Node* last;
     printf("Traversal in forward direction:\n");
